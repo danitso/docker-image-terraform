@@ -1,6 +1,22 @@
 # Docker Image for Terraform
 A Docker Image for Terraform which includes all the custom providers created by Danitso.
 
+## How To Use
+
+```bash
+docker run -v <hostpath>:/workspace -it --rm danitso/terraform init
+```
+
+_Remember to replace `<hostpath>` with an actual path on the host system._
+
+## How To Build
+
+```bash
+docker build -t danitso/terraform .
+```
+
+_Please note that the image is available on Docker Hub. This means that you only need to build it, if you want to test uncommitted changes._
+
 ## Build Arguments
 
 ### UBUNTU_VERSION
@@ -36,23 +52,3 @@ Specifies the SHA256 checksum for the specified version of the Iron.io provider 
 ### /workspace
 
 This is the working directory for Terraform. The files must be mounted within this directory.
-
-## How To Build
-
-You can build the image like this:
-
-```bash
-docker build -t danitso/terraform .
-```
-
-Please note that the image is available on Docker Hub. This means that you only need to build it, if you need to test uncommitted changes. Skip ahead to [How To Use](#how-to-use), if this is not the case.
-
-## How To Use
-
-You can use the image like this:
-
-```bash
-docker run -v <hostpath>:/workspace -it --rm danitso/terraform init
-```
-
-Remember to replace `<hostpath>` with an actual path on the host system.
