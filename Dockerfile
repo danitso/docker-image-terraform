@@ -57,6 +57,13 @@ RUN \
 RUN \
     chmod +x "${TERRAFORM_PLUGINS_PATH}"/*
 
+# Remove some of the helper utilities again.
+RUN \
+    apt-get -q remove -y \
+        wget \
+        unzip && \
+    apt-get clean
+
 # Create the workspace directory and remain inside it.
 RUN mkdir -p /workspace
 WORKDIR /workspace
