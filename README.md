@@ -19,9 +19,9 @@ _Please note that the image is available on Docker Hub. This means that you only
 
 ## Build Arguments
 
-### UBUNTU_VERSION
+### ALPINE_VERSION
 
-Specifies which version of Ubuntu to use as the base image.
+Specifies which version of Alpine to use as the base image.
 
 ### TERRAFORM_VERSION
 
