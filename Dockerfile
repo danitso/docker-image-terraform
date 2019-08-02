@@ -52,6 +52,7 @@ LABEL Vendor="Danitso"
 ENV LANG="C.UTF-8"
 ENV TERRAFORM_BINARY_PATH="/usr/bin/terraform"
 ENV TERRAFORM_PLUGINS_PATH="/root/.terraform.d/plugins"
+ENV TERRAFORM_UTILITIES="git"
 
 # Copy the binaries from the build stage.
 COPY --from=build "${TERRAFORM_BINARY_PATH}" "${TERRAFORM_BINARY_PATH}"
@@ -59,6 +60,9 @@ COPY --from=build "${TERRAFORM_PLUGINS_PATH}" "${TERRAFORM_PLUGINS_PATH}"
 
 # Ensure that the binaries can be executed.
 RUN chmod +x "${TERRAFORM_BINARY_PATH}" "${TERRAFORM_PLUGINS_PATH}"/*
+
+# Install utilities supported by Terraform.
+RUN apk add --no-cache ${TERRAFORM_UTILITIES}
 
 # Create the workspace directory and remain inside it.
 RUN mkdir -p /workspace
