@@ -42,6 +42,16 @@ RUN \
     sha256sum -c "terraform-provider-${TERRAFORM_PROVIDER_IRONIO_NAME}_v${TERRAFORM_PROVIDER_IRONIO_VERSION}_SHA256SUMS" && \
     unzip  "terraform-provider-${TERRAFORM_PROVIDER_IRONIO_NAME}_v${TERRAFORM_PROVIDER_IRONIO_VERSION}.zip" -d "${TERRAFORM_PLUGINS_PATH}" && \
     rm -f "terraform-provider-${TERRAFORM_PROVIDER_IRONIO_NAME}_v${TERRAFORM_PROVIDER_IRONIO_VERSION}.zip"
+ENV TERRAFORM_PROVIDER_SFTP_NAME="sftp"
+ARG TERRAFORM_PROVIDER_SFTP_VERSION="0.1.0"
+ARG TERRAFORM_PROVIDER_SFTP_SHA256SUM="d92e66d6238dd323eb28845642fc005296662ce441fb193e0fb52133e431e145"
+RUN \
+    wget -nv -O "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}.zip" "https://github.com/danitso/terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}/releases/download/${TERRAFORM_PROVIDER_SFTP_VERSION}/terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}-custom_linux_amd64.zip" && \
+    echo "${TERRAFORM_PROVIDER_SFTP_SHA256SUM}  terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}.zip" > "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}_SHA256SUMS" && \
+    sha256sum "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}.zip" && \
+    sha256sum -c "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}_SHA256SUMS" && \
+    unzip  "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}.zip" -d "${TERRAFORM_PLUGINS_PATH}" && \
+    rm -f "terraform-provider-${TERRAFORM_PROVIDER_SFTP_NAME}_v${TERRAFORM_PROVIDER_SFTP_VERSION}.zip"
 #==================================================== FINAL STAGE ====================================================#
 FROM alpine:${ALPINE_VERSION}
 #==================================================== INFORMATION ====================================================#
