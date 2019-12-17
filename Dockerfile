@@ -9,8 +9,8 @@ ENV TERRAFORM_PLUGINS_PATH="/root/.terraform.d/plugins"
 RUN apk add --no-cache ${BUILD_UTILITIES}
 
 # Install the specified version of Terraform.
-ARG TERRAFORM_VERSION="0.12.17"
-ARG TERRAFORM_SHA256SUM="8124c7dfe5036377de0637378ad32cf530477403c29ab1ccefbaa50a05d059c2"
+ARG TERRAFORM_VERSION="0.12.18"
+ARG TERRAFORM_SHA256SUM="e7ebe3ca988768bffe0c239d107645bd53515354cff6cbe5651718195a151700"
 RUN \
     wget -nv -O "terraform_${TERRAFORM_VERSION}_linux_amd64.zip" "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" && \
     echo "${TERRAFORM_SHA256SUM}  terraform_${TERRAFORM_VERSION}_linux_amd64.zip" > "terraform_${TERRAFORM_VERSION}_SHA256SUMS" && \
