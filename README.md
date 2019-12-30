@@ -47,6 +47,14 @@ Specifies which version of the Iron.io provider to install.
 
 Specifies the SHA256 checksum for the specified version of the Iron.io provider (Linux binary).
 
+### TERRAFORM_PROVIDER_PROXMOX_VERSION
+
+Specifies which version of the Proxmox provider to install.
+
+### TERRAFORM_PROVIDER_PROXMOX_SHA256SUM
+
+Specifies the SHA256 checksum for the specified version of the Proxmox provider (Linux binary).
+
 ### TERRAFORM_PROVIDER_SFTP_VERSION
 
 Specifies which version of the SFTP provider to install.
